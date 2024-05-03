@@ -1,0 +1,30 @@
+html {
+    font-family: sans-serif;
+}
+
+.header {
+    height: 100px;
+    border-bottom: solid black 2px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 550;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+}
+
+.newBook {
+    font-size: 18px;
+    grid-row: 2 / 3;
+    justify-self: center;
+    align-self: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 15px;
+}
