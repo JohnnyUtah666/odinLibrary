@@ -28,3 +28,8 @@ html {
     background-color: white;
     margin-bottom: 15px;
 }
+
+.libraryBody {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
