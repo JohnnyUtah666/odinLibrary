@@ -17,8 +17,15 @@ addBookToLibrary(jest);
 console.log(myLibrary);
 
 
+const dialog = document.querySelector("dialog");
 const newBook = document.querySelector('.newBook');
-newBook.addEventListener("click", (event) => {
-    alert("You have clicked this button");
+const closeButton = document.querySelector("dialog button");
+
+newBook.addEventListener("click", () => {
+    dialog.showModal();
 });
+closeButton.addEventListener("click", () => {
+    dialog.close();
+});
+
 
