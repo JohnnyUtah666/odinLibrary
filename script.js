@@ -14,8 +14,14 @@ function addBookToLibrary(Book) {
 
 addBookToLibrary(jest);
 
-console.log(myLibrary);
+function displayBook(array) {
+    for(let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+    
+}
 
+displayBook(myLibrary);
 
 const dialog = document.querySelector("dialog");
 const newBook = document.querySelector('.newBook');
