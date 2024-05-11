@@ -34,6 +34,15 @@ html {
     grid-template-columns: repeat(4, 1fr);
 }
 
+#card {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 275px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
 dialog form {
     display: flex;
     flex-direction: column;
