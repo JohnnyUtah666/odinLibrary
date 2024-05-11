@@ -25,11 +25,17 @@ function displayBook(array) {
     
 
     for (let item of array) {
-        let datum = document.createElement('div');
-        datum.textContent = JSON.stringify(item);
-        container.appendChild(datum);
-        datum.style.border = "solid black 1px";
-        datum.style.margin = "5px";
+        let card = document.createElement('div');
+        document.querySelector('.libraryBody').appendChild(card);
+       
+        let displayTitle = document.createTextNode(item.title);
+        let displayAuthor = document.createTextNode(item.author);
+        let displayPageCount = document.createTextNode(item.pageCount);
+
+        card.appendChild(displayTitle);
+        card.appendChild(displayAuthor);
+        card.appendChild(displayPageCount);
+
     }
 }
 
