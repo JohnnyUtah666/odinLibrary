@@ -27,15 +27,23 @@ function displayBook(array) {
     for (let item of array) {
         let card = document.createElement('div');
         document.querySelector('.libraryBody').appendChild(card);
+        card.setAttribute("id", "card");
        
-        let displayTitle = document.createTextNode(item.title);
-        let displayAuthor = document.createTextNode(item.author);
-        let displayPageCount = document.createTextNode(item.pageCount);
+        let displayTitle = document.createElement('div');
+        let displayAuthor = document.createElement('div');
+        let displayPageCount = document.createElement('div');
+        
+        let displayTitleContent = document.createTextNode(item.title);
+        let displayAuthorContent = document.createTextNode(item.author);
+        let displayPageCountContent = document.createTextNode(item.pageCount);
+        
+        displayTitle.appendChild(displayTitleContent);
+        displayAuthor.appendChild(displayAuthorContent);
+        displayPageCount.appendChild(displayPageCountContent);
 
         card.appendChild(displayTitle);
         card.appendChild(displayAuthor);
         card.appendChild(displayPageCount);
-
     }
 }
 
