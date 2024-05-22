@@ -6,19 +6,10 @@ function Book(title, author, pageCount) {
     this.pageCount = pageCount;
 }
 
-const jest = new Book("Infinite Jest", "David Foster Wallace", 1056);
-const bolano = new Book("2666", "Roberto Bolaño", 893);
-const champion = new Book("Breakfast of Champions", "Kurt Vonnegut", 295);
 
 function addBookToLibrary(Book) {
     myLibrary.push(Book);
 }
-
-addBookToLibrary(jest);
-addBookToLibrary(bolano);
-addBookToLibrary(champion);
-
-let form = document.getElementById('addBookForm');
 
 function displayBook(array) {
 
@@ -51,11 +42,12 @@ function displayBook(array) {
 
 
 
-displayBook(myLibrary);
-displayBook(myLibrary);
+
+
 
 const dialog = document.querySelector("dialog");
 const newBook = document.querySelector('.newBook');
+let form = document.getElementById('addBookForm');
 const closeButton = document.querySelector("dialog button");
 const submitButton = document.getElementById('submit');
 
@@ -64,7 +56,16 @@ newBook.addEventListener("click", () => {
 });
 
 submitButton.addEventListener("click", () => {
-    alert("You have clicked the submit button");
+   let newTitle = document.getElementById('title');
+   let printTitle = newTitle.value;
+   let newAuthor = document.getElementById('author');
+   let printAuthor = newAuthor.value;
+   let newPageCount = document.getElementById('pageCount');
+   let printPageCount = newPageCount.value;
+
+   let addedBook = new Book(printTitle, printAuthor, printPageCount);
+    addBookToLibrary(addedBook);
+    displayBook(myLibrary);
 });
 
 closeButton.addEventListener("click", () => {
