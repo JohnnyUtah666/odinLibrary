@@ -18,6 +18,8 @@ addBookToLibrary(jest);
 addBookToLibrary(bolano);
 addBookToLibrary(champion);
 
+let form = document.getElementById('addBookForm');
+
 function displayBook(array) {
 
     let container = document.querySelector('.libraryBody');
@@ -48,16 +50,23 @@ function displayBook(array) {
 }
 
 
+
 displayBook(myLibrary);
 displayBook(myLibrary);
 
 const dialog = document.querySelector("dialog");
 const newBook = document.querySelector('.newBook');
 const closeButton = document.querySelector("dialog button");
+const submitButton = document.getElementById('submit');
 
 newBook.addEventListener("click", () => {
     dialog.showModal();
 });
+
+submitButton.addEventListener("click", () => {
+    alert("You have clicked the submit button");
+});
+
 closeButton.addEventListener("click", () => {
     dialog.close();
 });
