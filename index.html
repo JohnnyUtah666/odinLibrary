@@ -16,7 +16,7 @@
     </div>
 
     <dialog>
-        <form onsubmit="event.preventDefault();" id="addBookForm">
+        <form onsubmit="event.preventDefault(); this.reset();" id="addBookForm">
             <h1>Add new book</h1>
             <label for="title">Title</label>
             <input type="text" id="title" name="title">
