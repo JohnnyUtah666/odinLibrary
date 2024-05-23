@@ -1,9 +1,10 @@
 const myLibrary = [];
 
-function Book(title, author, pageCount) {
+function Book(title, author, pageCount, read) {
     this.title = title;
     this.author = author;
     this.pageCount = pageCount;
+    this.read = read;
 }
 
 
@@ -21,10 +22,6 @@ function displayBook(array) {
         let card = document.createElement('div');
         document.querySelector('.libraryBody').appendChild(card);
         card.setAttribute("id", "card");
-       
-        let displayTitle = document.createElement('div');
-        let displayAuthor = document.createElement('div');
-        let displayPageCount = document.createElement('div');
 
         let removeButton = document.createElement('button');
         removeButton.setAttribute("id", "removeButton");
@@ -32,22 +29,35 @@ function displayBook(array) {
             card.remove();
             myLibrary.pop(card);
         })
+       
+        let displayTitle = document.createElement('div');
+        let displayAuthor = document.createElement('div');
+        let displayPageCount = document.createElement('div');
+        let displayRead = document.createElement('button');
+    
 
         
         let displayTitleContent = document.createTextNode(item.title);
         let displayAuthorContent = document.createTextNode(item.author);
         let displayPageCountContent = document.createTextNode(item.pageCount);
+        let displayReadContent = document.createTextNode(item.read);
         let removeButtonContent = document.createTextNode("Remove Book");
         
         displayTitle.appendChild(displayTitleContent);
         displayAuthor.appendChild(displayAuthorContent);
         displayPageCount.appendChild(displayPageCountContent);
+        displayRead.appendChild(displayReadContent);
         removeButton.appendChild(removeButtonContent);
 
         card.appendChild(displayTitle);
         card.appendChild(displayAuthor);
         card.appendChild(displayPageCount);
+        card.appendChild(displayRead);
         card.appendChild(removeButton);
+
+    
+
+    
     }
 }
 
