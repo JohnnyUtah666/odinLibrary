@@ -43,6 +43,10 @@ html {
     border-radius: 10px;
 }
 
+dialog {
+    border-radius: 10px;
+}
+
 dialog form {
     display: flex;
     flex-direction: column;
