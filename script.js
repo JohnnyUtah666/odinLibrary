@@ -25,20 +25,32 @@ function displayBook(array) {
         let displayTitle = document.createElement('div');
         let displayAuthor = document.createElement('div');
         let displayPageCount = document.createElement('div');
+
+        let removeButton = document.createElement('button');
+        removeButton.setAttribute("id", "removeButton");
+        removeButton.addEventListener("click", () => {
+            card.remove();
+            myLibrary.pop(card);
+        })
+
         
         let displayTitleContent = document.createTextNode(item.title);
         let displayAuthorContent = document.createTextNode(item.author);
         let displayPageCountContent = document.createTextNode(item.pageCount);
+        let removeButtonContent = document.createTextNode("Remove Book");
         
         displayTitle.appendChild(displayTitleContent);
         displayAuthor.appendChild(displayAuthorContent);
         displayPageCount.appendChild(displayPageCountContent);
+        removeButton.appendChild(removeButtonContent);
 
         card.appendChild(displayTitle);
         card.appendChild(displayAuthor);
         card.appendChild(displayPageCount);
+        card.appendChild(removeButton);
     }
 }
+
 
 
 
@@ -48,7 +60,7 @@ function displayBook(array) {
 const dialog = document.querySelector("dialog");
 const newBook = document.querySelector('.newBook');
 let form = document.getElementById('addBookForm');
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.getElementById('cancelButton');
 const submitButton = document.getElementById('submit');
 
 newBook.addEventListener("click", () => {
@@ -66,10 +78,10 @@ submitButton.addEventListener("click", () => {
    let addedBook = new Book(printTitle, printAuthor, printPageCount);
     addBookToLibrary(addedBook);
     displayBook(myLibrary);
+    dialog.close();
 });
 
 closeButton.addEventListener("click", () => {
     dialog.close();
 });
-
 
