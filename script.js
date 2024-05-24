@@ -29,20 +29,29 @@ function displayBook(array) {
             card.remove();
             myLibrary.pop(card);
         })
+
        
         let displayTitle = document.createElement('div');
         let displayAuthor = document.createElement('div');
         let displayPageCount = document.createElement('div');
         let displayRead = document.createElement('button');
+        displayRead.classList.add("readButton");
     
-
         
         let displayTitleContent = document.createTextNode(item.title);
         let displayAuthorContent = document.createTextNode(item.author);
         let displayPageCountContent = document.createTextNode(item.pageCount);
-        let displayReadContent = document.createTextNode(item.read);
+        let displayReadContent;
         let removeButtonContent = document.createTextNode("Remove Book");
         
+        let readCheckBox = document.getElementById('read').checked;
+        if (readCheckBox == true) {
+            displayReadContent = document.createTextNode("Read");
+        } else {
+            displayReadContent = document.createTextNode("Haven't Read");
+        }
+        
+
         displayTitle.appendChild(displayTitleContent);
         displayAuthor.appendChild(displayAuthorContent);
         displayPageCount.appendChild(displayPageCountContent);
@@ -55,7 +64,15 @@ function displayBook(array) {
         card.appendChild(displayRead);
         card.appendChild(removeButton);
 
-    
+        const toggleRead = document.querySelector('.readButton');
+
+        toggleRead.addEventListener("click", function(){
+            if (toggleRead.textContent == "Read"){
+                toggleRead.textContent = "Haven't Read";
+            } else {
+                toggleRead.textContent = "Read"
+            }
+        })
 
     
     }
@@ -85,10 +102,21 @@ submitButton.addEventListener("click", () => {
    let newPageCount = document.getElementById('pageCount');
    let printPageCount = newPageCount.value;
 
-   let addedBook = new Book(printTitle, printAuthor, printPageCount);
+   
+    if (printTitle == "") {
+       return false;
+    } else if (printAuthor == "") {
+        return false;
+    } else if (printPageCount == "") {
+        return false;
+    } else {
+        let addedBook = new Book(printTitle, printAuthor, printPageCount);
     addBookToLibrary(addedBook);
     displayBook(myLibrary);
-    dialog.close();
+        dialog.close();
+    }
+    
+    
 });
 
 closeButton.addEventListener("click", () => {
