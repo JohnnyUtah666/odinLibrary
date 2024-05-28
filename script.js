@@ -5,6 +5,14 @@ function Book(title, author, pageCount, read) {
     this.author = author;
     this.pageCount = pageCount;
     this.read = read;
+    this.returnRead = function() {
+        return this.read;
+    }
+    if (document.getElementById('read').checked == true) {
+        this.read = 'Read'
+    } else if (document.getElementById('read').checked == false) {
+        this.read = "Haven't Read"
+    }
 }
 
 
@@ -34,45 +42,41 @@ function displayBook(array) {
         let displayTitle = document.createElement('div');
         let displayAuthor = document.createElement('div');
         let displayPageCount = document.createElement('div');
-        let displayRead = document.createElement('button');
-        displayRead.classList.add("readButton");
+        let toggleButton = document.createElement('button');
+        
     
         
         let displayTitleContent = document.createTextNode(item.title);
         let displayAuthorContent = document.createTextNode(item.author);
         let displayPageCountContent = document.createTextNode(item.pageCount);
-        let displayReadContent;
+        let toggleContent = document.createTextNode(item.read);
         let removeButtonContent = document.createTextNode("Remove Book");
         
-        let readCheckBox = document.getElementById('read').checked;
-        if (readCheckBox == true) {
-            displayReadContent = document.createTextNode("Read");
-        } else {
-            displayReadContent = document.createTextNode("Haven't Read");
-        }
+        
         
 
         displayTitle.appendChild(displayTitleContent);
         displayAuthor.appendChild(displayAuthorContent);
         displayPageCount.appendChild(displayPageCountContent);
-        displayRead.appendChild(displayReadContent);
+        toggleButton.appendChild(toggleContent);
         removeButton.appendChild(removeButtonContent);
 
         card.appendChild(displayTitle);
         card.appendChild(displayAuthor);
         card.appendChild(displayPageCount);
-        card.appendChild(displayRead);
+        card.appendChild(toggleButton);
         card.appendChild(removeButton);
 
-        const toggleRead = document.querySelector('.readButton');
-
-        toggleRead.addEventListener("click", function(){
-            if (toggleRead.textContent == "Read"){
-                toggleRead.textContent = "Haven't Read";
-            } else {
-                toggleRead.textContent = "Read"
+       toggleButton.addEventListener("click", () => {
+            if (item.read == 'Read') {
+                item.read = "Haven't Read";
+            } else if (item.read == "Haven't Read") {
+                item.read = "Read";
             }
-        })
+            toggleContent.textContent = item.read;
+       });
+
+        
 
     
     }
@@ -101,6 +105,7 @@ submitButton.addEventListener("click", () => {
    let printAuthor = newAuthor.value;
    let newPageCount = document.getElementById('pageCount');
    let printPageCount = newPageCount.value;
+   
 
    
     if (printTitle == "") {
@@ -110,7 +115,8 @@ submitButton.addEventListener("click", () => {
     } else if (printPageCount == "") {
         return false;
     } else {
-        let addedBook = new Book(printTitle, printAuthor, printPageCount);
+        let addedBook = new Book(printTitle, printAuthor, printPageCount, read);
+        
     addBookToLibrary(addedBook);
     displayBook(myLibrary);
         dialog.close();
