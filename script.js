@@ -43,8 +43,13 @@ function displayBook(array) {
         let displayAuthor = document.createElement('div');
         let displayPageCount = document.createElement('div');
         let toggleButton = document.createElement('button');
+
+        displayTitle.setAttribute("id", "displayTitle");
+        displayAuthor.setAttribute("id", "displayAuthor");
+        displayPageCount.setAttribute("id", "displayPageCount");
+        toggleButton.setAttribute("id", "toggleButton");
         
-    
+        
         
         let displayTitleContent = document.createTextNode(item.title);
         let displayAuthorContent = document.createTextNode(item.author);
