@@ -2,6 +2,22 @@ html {
     font-family: sans-serif;
 }
 
+#title, #author, #pageCount {
+    border-radius: 8px;
+}
+
+.checkDiv {
+    display: flex;
+    margin: 5px;
+}
+
+#submit {
+    background-color: white; 
+    border: solid black 2px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
 .header {
     height: 100px;
     border-bottom: solid black 2px;
@@ -41,6 +57,9 @@ html {
     height: 275px;
     background-color: lightgray;
     border-radius: 10px;
+    padding: 25px 5px 0px 5px;
+    align-items: center;
+    margin-top: 10px;
 }
 
 dialog {
@@ -50,15 +69,19 @@ dialog {
 dialog form {
     display: flex;
     flex-direction: column;
+    
+    
 }
 
 #cancelButton {
     background-color: white;
     border-style: none;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-left: 100px;
     margin-bottom: -5px;
     font-weight: 700;
     width: 15px;
+    
 }
 
 #cancelButton:hover {
@@ -68,4 +91,27 @@ dialog form {
 #cancelButton:active {
     transform: translateY(1px);
     
+}
+
+
+
+
+#displayTitle, #displayAuthor, #displayPageCount {
+    margin: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#toggleButton, #removeButton {
+    margin: 5px;
+    width: 100px;
+    justify-content: center;
+    border-style: none;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 8px;
 }
