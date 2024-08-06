@@ -106,6 +106,7 @@ dialog form {
 #toggleButton, #removeButton {
     margin: 5px;
     width: 100px;
+    height: 60px;
     justify-content: center;
     border-style: none;
     background-color: white;
